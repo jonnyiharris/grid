@@ -1,8 +1,5 @@
 (function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define([], factory);
-  } else if (typeof exports === 'object') {
+  if (typeof exports === 'object') {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like environments that support module.exports,
     // like Node.
@@ -59,8 +56,7 @@ GridList.cloneItems = function(items, _items) {
    * Clone items with a deep level of one. Items are not referenced but their
    * properties are
    */
-  var _item,
-      i,
+  var i,
       k;
   if (_items === undefined) {
     _items = [];
@@ -277,11 +273,11 @@ GridList.prototype = {
           position2 = this._getItemPosition(item2);
 
       // Try to preserve columns.
-      if (position1.x != position2.x) {
+      if (position1.x !== position2.x) {
         return position1.x - position2.x;
       }
 
-      if (position1.y != position2.y) {
+      if (position1.y !== position2.y) {
         return position1.y - position2.y;
       }
 
@@ -336,7 +332,7 @@ GridList.prototype = {
      */
 
     var position = this._getItemPosition(item),
-        x, y, row;
+        x, y;
 
     // No coordonate can be negative
     if (newPosition[0] < 0 || newPosition[1] < 0) {
@@ -433,7 +429,7 @@ GridList.prototype = {
         // the meantime (e.g. when an item has been moved over this one, and
         // thus by continuing to clear this item's previous position you would
         // cancel the first item's move, leaving it without any position even)
-        if (this.grid[x][y] == item) {
+        if (this.grid[x][y] === item) {
           this.grid[x][y] = null;
         }
       }
@@ -455,7 +451,7 @@ GridList.prototype = {
   _getItemsCollidingWithItem: function(item) {
     var collidingItems = [];
     for (var i = 0; i < this.items.length; i++) {
-      if (item != this.items[i] &&
+      if (item !== this.items[i] &&
           this._itemsAreColliding(item, this.items[i])) {
         collidingItems.push(i);
       }
@@ -570,7 +566,7 @@ GridList.prototype = {
           position = this._getItemPosition(item);
 
       // The fixed item keeps its exact position
-      if (fixedItem && item == fixedItem) {
+      if (fixedItem && item === fixedItem) {
         continue;
       }
 
