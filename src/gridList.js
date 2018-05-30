@@ -8,7 +8,7 @@
     // Browser globals (root is window)
     root.GridList = factory();
   }
-}(this, function() {
+}(this || window, function() {
 
 var GridList = function(items, options) {
   /**
