@@ -1,15 +1,3 @@
-(function (root, factory) {
-  if (typeof exports === 'object') {
-    // Node. Does not work with strict CommonJS, but
-    // only CommonJS-like environments that support module.exports,
-    // like Node.
-    module.exports = factory();
-  } else {
-    // Browser globals (root is window)
-    root.GridList = factory();
-  }
-}(this || window, function() {
-
 var GridList = function(items, options) {
   /**
    * A GridList manages the two-dimensional positions from a list of items,
@@ -686,6 +674,4 @@ var GridCol = function(lanes) {
 GridCol.prototype = [];
 
 // This module will have direct access to the GridList class
-return GridList;
-
-}));
+export default GridList;
